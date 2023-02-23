@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAGI 1.0</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="headerForm">
+        <h1>Inserção de Ordem de Serviço</h1>
+        <img src="./images/logo.svg" class="logo" alt="">
+      </div>
+      <form>
+        <fieldset>
+          <div class="col-2">
+            <div class="inputWrapper">
+              <label for="inputNome" class="form-label">
+                Nome do solicitante
+              </label>
+              <input type="text" class="form-control" id="inputNome" />
+            </div>
+
+            <div class="inputWrapper">
+              <label for="inputSetor" class="form-label">Setor</label>
+              <select class="form-control" id="inputSetor">
+                <optgroup label="Fábrica">
+                <option value="Linha 01">Linha 01</option>
+                <option value="Linha 02">Linha 02</option>
+                <option value="Linha 03">Linha 03</option>
+                </optgroup>
+                <optgroup label="Beneficiamento">
+                <option value="Secador 01">Secador 01</option>
+                <option value="Secador 02">Secador 02</option>
+                <option value="Secador 00">Secador 00</option>
+                <option value="Peneira 01">Peneira 01</option>
+                <option value="Peneira 02">Peneira 02</option>
+                </optgroup>
+                <optgroup label="Beneficiamento">
+                <option value="Cultivar">Cultivar</option>
+                </optgroup>
+                <optgroup label="Proteção de marcas">
+                <option value="Prensagem">Prensagem</option>
+                <option value="Descaracterização 01">Descaracterização 01</option>
+                <option value="Descaracterização 02">Descaracterização 02</option>
+                <option value="Fragmentadora 01">Fragmentadora 01</option>
+                </optgroup>  
+              </select>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="inputWrapper">
+              <label for="inputEquipamento" class="form-label"
+                >Equipamento</label
+              >
+              <input type="text" class="form-control" id="inputEquipamento" />
+            </div>
+
+            <div class="inputWrapper">
+              <label class="form-label"> Tipo de atividade </label>
+              <select id="atividade">
+                <option value="Mecânica">Mecânica</option>
+                <option value="Elétrica">Elétrica</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="inputWrapper">
+            <label for="inputDescricao" class="form-label">
+              Descrição da demanda
+            </label>
+            <textarea class="form-control" id="inputDescricao"></textarea>
+          </div>
+        </fieldset>
+        <button type="submit" class="btnform">Cadastrar</button>
+      </form>
+    </div>
+
+
+    <script src="./balthazar.js"></script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="54.999996mm"
+   height="72mm"
+   viewBox="0 0 54.999996 72"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g400"
+       transform="translate(-38.401959,-20.00102)">
+      <path
+         id="rect111"
+         style="fill:#000080;stroke-width:0.443522"
+         d="m 42.475908,24.17749 v 51.460425 l 8.880595,14.213603 H 81.106108 L 90.052332,75.532495 V 24.17749 Z"
+         sodipodi:nodetypes="ccccccc" />
+      <text
+         xml:space="preserve"
+         style="font-size:36.7088px;font-family:monospace;-inkscape-font-specification:monospace;text-align:center;text-anchor:middle;fill:#ffff00;stroke-width:1.85815"
+         x="66.541382"
+         y="60.192589"
+         id="text505"><tspan
+           sodipodi:role="line"
+           id="tspan503"
+           style="fill:#ffff00;stroke-width:1.85815"
+           x="66.541382"
+           y="60.192589">明</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:9.87777px;font-family:monospace;-inkscape-font-specification:monospace;text-align:center;text-anchor:middle;fill:#ffff00;stroke-width:0.499999"
+       x="28.201435"
+       y="54.531918"
+       id="text611"><tspan
+         sodipodi:role="line"
+         id="tspan609"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Javanese Text';-inkscape-font-specification:'Javanese Text';stroke-width:0.5"
+         x="28.201435"
+         y="54.531918">MAGI1</tspan></text>
+    <circle
+       style="fill:#ffff00;stroke-width:0.499999"
+       id="path669"
+       cx="26.105312"
+       cy="62.661472"
+       r="3.6001837" />
+    <circle
+       style="fill:#ffff00;stroke-width:0.249999"
+       id="path669-6"
+       cx="32.001629"
+       cy="59.732182"
+       r="1.8000919" />
+    <circle
+       style="fill:#ffff00;stroke-width:0.138889"
+       id="path669-6-9"
+       cx="31.401608"
+       cy="63.532375"
+       r="1.0000511" />
+    <circle
+       style="fill:#ffff00;stroke-width:0.0833334"
+       id="path669-6-9-4"
+       cx="33.601719"
+       cy="62.732342"
+       r="0.60003072" />
+  </g>
+</svg>
