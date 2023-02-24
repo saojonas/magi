@@ -22,3 +22,9 @@ function popularTabela() {
 }
 
 popularTabela();
+
+// atualiza a tabela a cada 5 segundos
+setInterval(() => {
+  popularTabela();
+}, 5000);
+
