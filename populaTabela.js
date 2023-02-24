@@ -27,4 +27,3 @@ popularTabela();
 setInterval(() => {
   popularTabela();
 }, 5000);
-
