@@ -1,7 +1,5 @@
 const form = document.querySelector("form");
-
-const pilha = [];
-var id = 0;
+const ordemServicoList = [];
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -12,18 +10,9 @@ form.addEventListener("submit", (event) => {
   const selectAtividade = document.querySelector("#atividade");
   const inputDescricao = document.getElementById("inputDescricao");
 
-  const options = {
-    day: "numeric",
-    month: "numeric",
-    year: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    hour12: false,
-  };
-
   const ordemServico = {
-    id: id++,
-    dataAbertura: new Date().toLocaleDateString("PT-br", options),
+    id: ordemServicoList.length + 1,
+    dataAbertura: new Date().toLocaleString("pt-BR", { hour12: false }),
     cliente: inputNome.value,
     setor: inputSetor.value,
     equipamento: inputEquipamento.value,
@@ -31,14 +20,10 @@ form.addEventListener("submit", (event) => {
     descricao: inputDescricao.value,
   };
 
-  ordemServico.id.toString();
-
   form.reset();
-  pilha.push(ordemServico);
-
-  localStorage.setItem("ordemServico", JSON.stringify(pilha));
+  ordemServicoList.push(ordemServico);
+  localStorage.setItem("ordemServico", JSON.stringify(ordemServicoList));
 });
 
-// recuperando o objeto de LocalStorage
-const ordemServicoSalva = JSON.parse(localStorage.getItem("ordemServico"));
+const ordemServicoSalva = JSON.parse(localStorage.getItem("ordemServico")) || [];
 console.table(ordemServicoSalva);
