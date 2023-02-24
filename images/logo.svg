@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="54.999996mm"
+   height="65mm"
+   viewBox="0 0 54.999996 65"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#0a3740;fill-opacity:1;stroke-width:0.264583"
+       id="path215"
+       cx="27.630695"
+       cy="27.092487"
+       r="24.782721" />
+    <text
+       xml:space="preserve"
+       style="font-size:33.4636px;font-family:Cambria;-inkscape-font-specification:'Cambria, Normal';text-align:center;text-anchor:middle;fill:#f9f9f9;fill-opacity:1;stroke-width:0.692683"
+       x="24.403614"
+       y="39.050953"
+       id="text1056"
+       transform="scale(0.99433428,1.005698)"><tspan
+         sodipodi:role="line"
+         id="tspan1054"
+         style="fill:#f9f9f9;stroke-width:0.692683"
+         x="24.403614"
+         y="39.050953"> <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Bell MT';-inkscape-font-specification:'Bell MT';fill:#f9f9f9;stroke-width:0.692683"
+   id="tspan1108">掛</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.782px;font-family:Corbel;-inkscape-font-specification:Corbel;text-align:center;text-anchor:middle;fill:#0a3740;fill-opacity:1;stroke-width:0.264583"
+       x="27.434055"
+       y="61.581154"
+       id="text1164"><tspan
+         sodipodi:role="line"
+         id="tspan1162"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Corbel;-inkscape-font-specification:Corbel;fill:#0a3740;fill-opacity:1;stroke-width:0.264583"
+         x="27.434055"
+         y="61.581154">MAGI1</tspan></text>
+  </g>
+</svg>

@@ -29,6 +29,40 @@ body::before {
   margin: 130px auto 0;
 }
 
+nav {
+  width: 600px;
+  top: 50px;
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  width: 300px;
+  height: 50px;
+  background: #2395c2;
+  border-radius: 10px 10px;
+  padding: 8px;
+}
+
+li a {
+  font-family: "Staatliches";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 34px;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .headerForm {
   display: flex;
   align-items: center;
