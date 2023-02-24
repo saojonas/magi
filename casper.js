@@ -1,34 +1,80 @@
-// selecionando o formulário
-const form = document.querySelector('form');
+function popularTabela() {
+  const ordemServicoSalva = JSON.parse(localStorage.getItem("ordemServico"));
+  const tbody = document.querySelector(".content table tbody");
+  tbody.innerHTML = "";
 
-// criando a pilha (array) para armazenar os objetos
-const pilha = [];
+  for (let i = 0; i < ordemServicoSalva.length; i++) {
+    const ordemServico = ordemServicoSalva[i];
 
-// adicionando um listener de evento para o formulário
-form.addEventListener('submit', (event) => {
-  event.preventDefault(); // previne que a página seja recarregada
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="idOS">${ordemServico.id}</td>
+      <td class="dateOpen">${ordemServico.dataAbertura}</td>
+      <td class="name">${ordemServico.cliente}</td>
+      <td class="sector">${ordemServico.setor}</td>
+      <td class="equip">${ordemServico.equipamento}</td>
+      <td class="active">${ordemServico.atividade}</td>
+      <td class="description">${ordemServico.descricao}</td>
+      <td>
+        <button class="btn-transform btn-edit" data-index="${i}"><span class="material-symbols-outlined">edit_note</span></button>
+        <button class="btn-transform btn-delete" data-index="${i}"><span class="material-symbols-outlined">inventory_2</span></button>
+        <button class="btn-transform btn-print" data-index="${i}"><span class="material-symbols-outlined">print</span></button>
+      </td>
+    `;
 
-  // selecionando os campos do formulário
-  const inputNome = document.getElementById('inputNome');
-  const inputSetor = document.getElementById('inputSetor');
-  const inputEquipamento = document.getElementById('inputEquipamento');
-  const selectAtividade = document.querySelector('#atividade');
-  const inputDescricao = document.getElementById('inputDescricao');
+    tbody.appendChild(row);
+  }
 
-  // criando um objeto com os valores dos campos
-  const obj = {
-    nome: inputNome.value,
-    setor: inputSetor.value,
-    equipamento: inputEquipamento.value,
-    atividade: selectAtividade.value,
-    descricao: inputDescricao.value
-  };
+  // adiciona o tratamento de eventos aos botões
+  const btnsEdit = document.querySelectorAll(".btn-edit");
+  btnsEdit.forEach((btnEdit) => {
+    btnEdit.addEventListener("click", (event) => {
+      const index = event.currentTarget.getAttribute("data-index");
+      const ordemServico = ordemServicoSalva[index];
 
-  // empilhando o objeto na pilha (array)
-  pilha.push(obj);
+      // código para edição da OS
+    });
+  });
 
-  // limpando os campos do formulário
-  form.reset();
+  const btnsRemove = document.querySelectorAll(".btn-remove");
+  btnsRemove.forEach((btnRemove) => {
+    btnRemove.addEventListener("click", (event) => {
+      const index = event.target.getAttribute("data-index");
+      ordemServicoSalva.splice(index, 1);
+      localStorage.setItem("ordemServico", JSON.stringify(ordemServicoSalva));
+      popularTabela();
+    });
+  });
 
-  console.log(pilha); // exibindo a pilha no console
-});
+  const btnsPrint = document.querySelectorAll(".btn-print");
+  btnsPrint.forEach((btnPrint) => {
+    btnPrint.addEventListener("click", (event) => {
+      const index = event.target.getAttribute("data-index");
+      const ordemServico = ordemServicoSalva[index];
+
+      const newDoc = document.implementation.createHTMLDocument();
+      const section = newDoc.createElement('section');
+      section.innerHTML = `
+  <h1>Ordem de Serviço #${ordemServico.id}</h1>
+  <p><strong>Data de Abertura:</strong> ${ordemServico.dataAbertura}</p>
+  <p><strong>Cliente:</strong> ${ordemServico.cliente}</p>
+  <p><strong>Setor:</strong> ${ordemServico.setor}</p>
+  <p><strong>Equipamento:</strong> ${ordemServico.equipamento}</p>
+  <p><strong>Atividade:</strong> ${ordemServico.atividade}</p>
+  <p><strong>Descrição:</strong> ${ordemServico.descricao}</p>
+`;
+      newDoc.body.appendChild(section);
+
+      // Abre a janela de impressão do navegador
+      window.print();
+
+    });
+  });
+}
+
+popularTabela();
+
+// atualiza a tabela a cada 5 segundos
+setInterval(() => {
+  popularTabela();
+}, 5000);
