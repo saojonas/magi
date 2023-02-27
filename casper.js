@@ -15,7 +15,7 @@ function popularTabela() {
       <td class="equip">${ordemServico.equipamento}</td>
       <td class="active">${ordemServico.atividade}</td>
       <td class="description">${ordemServico.descricao}</td>
-      <td>
+      <td class="actions-td">
         <button class="btn-transform btn-edit" data-index="${i}"><span class="material-symbols-outlined">edit_note</span></button>
         <button class="btn-transform btn-delete" data-index="${i}"><span class="material-symbols-outlined">inventory_2</span></button>
         <button class="btn-transform btn-print" data-index="${i}"><span class="material-symbols-outlined">print</span></button>
@@ -32,16 +32,17 @@ function popularTabela() {
       const index = event.currentTarget.getAttribute("data-index");
       const ordemServico = ordemServicoSalva[index];
 
-      // código para edição da OS
+      console.log("edita?")
     });
   });
 
-  const btnsRemove = document.querySelectorAll(".btn-remove");
+  const btnsRemove = document.querySelectorAll(".btn-delete");
   btnsRemove.forEach((btnRemove) => {
     btnRemove.addEventListener("click", (event) => {
       const index = event.target.getAttribute("data-index");
       ordemServicoSalva.splice(index, 1);
       localStorage.setItem("ordemServico", JSON.stringify(ordemServicoSalva));
+      console.log("deleta?")
       popularTabela();
     });
   });
@@ -57,7 +58,7 @@ function popularTabela() {
       section.innerHTML = `
   <h1>Ordem de Serviço #${ordemServico.id}</h1>
   <p><strong>Data de Abertura:</strong> ${ordemServico.dataAbertura}</p>
-  <p><strong>Cliente:</strong> ${ordemServico.cliente}</p>
+  <p><strong>Solicitante:</strong> ${ordemServico.cliente}</p>
   <p><strong>Setor:</strong> ${ordemServico.setor}</p>
   <p><strong>Equipamento:</strong> ${ordemServico.equipamento}</p>
   <p><strong>Atividade:</strong> ${ordemServico.atividade}</p>
@@ -65,7 +66,7 @@ function popularTabela() {
 `;
       newDoc.body.appendChild(section);
 
-      // Abre a janela de impressão do navegador
+      console.log('imprime')
       window.print();
 
     });

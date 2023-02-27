@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const ordemServicoList = [];
+let ordemServicoList = JSON.parse(localStorage.getItem("ordemServico")) || [];
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -20,10 +20,10 @@ form.addEventListener("submit", (event) => {
     descricao: inputDescricao.value,
   };
 
-  form.reset();
   ordemServicoList.push(ordemServico);
   localStorage.setItem("ordemServico", JSON.stringify(ordemServicoList));
+  form.reset();
 });
 
-const ordemServicoSalva = JSON.parse(localStorage.getItem("ordemServico")) || [];
-console.table(ordemServicoSalva);
+console.table(ordemServicoList);
+

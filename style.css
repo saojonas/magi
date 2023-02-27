@@ -166,17 +166,11 @@ fieldset {
   cursor: pointer;
 }
 
-.btn-transform {
-  padding-top: 5px;
-  display: inline-block;
-  border-radius: 50%;
-  background-color: #0d6385;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  text-align: center;
-  line-height: 40px;
-  border: none;
-  cursor: pointer;
+.actions-td{
+
+gap: 15px;  
+
+
+
 }
+
