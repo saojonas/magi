@@ -36,14 +36,14 @@ function popularTabela() {
 if (btnDelete) {
   const index = btnDelete.getAttribute("data-index");
   const ordemServico = ordemServicoSalva.find((ordem) => ordem.id === index);
-  const confirmDelete = confirm(`Deseja realmente excluir a ordem de serviço ${ordemServico.id}?`);
+  //const confirmDelete = confirm(`Deseja realmente excluir a ordem de serviço ${ordemServico.id}?`);
   
-  if (confirmDelete) {
+  //if (confirmDelete) {
     const newOrdemServicoSalva = ordemServicoSalva.filter((ordem) => ordem.id !== index);
     localStorage.setItem("ordemServico", JSON.stringify(newOrdemServicoSalva));
     popularTabela();
   }
-}
+
 
     const btnPrint = event.target.closest("#btn-print");
     if (btnPrint) {

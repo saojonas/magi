@@ -1,31 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>NervNode</title>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+
+
+		body {
+
+			font-family: monospace;
+			display: flex;
+			justify-content: center;
+
+		}
+
+
+		.container {
+
+			width: 70%;
+			background-color: whitesmoke;
+			display: flex;
+			flex-direction: column;
+
+
+
+		}
+
+		.header {
+
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 75px;
+		}
+
+		.header-order {
+
+			text-transform: uppercase;
+			font-size: 3rem;
+			text-align: center;
+		}
+
+		#img-logo {
+
+			width: 5%;
+			position: absolute;
+			margin-left: 700px;
+			margin-top:-83px;
+		}
+
+		.header-number {
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 1.5rem;
+		}
+
+
+		.box {
+
+			display: flex;
+			width: 100%;
+		}
+
+
+		.box-open,
+		.box-add {
+			background-color: #f9f9f9;
+			border: 1px solid #ccc;
+			padding: 20px;
+			font-family: Arial, sans-serif;
+			width: 50%;
+
+		}
+
+		.box-open h3, .box-add h3 {
+			margin: 10px 0;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.fillField{
+			display: flex;
+			width: 100%;
+
+		}
+
+		.middlefield, .finallyField{
+			background-color: #f9f9f9;
+			border: 1px solid #ccc;
+			padding: 20px;
+			font-family: Arial, sans-serif;
+			width: 50%;
+
+
+		}
+
+		.middlefield p, .finallyField p{
+			background-color: #f9f9f9;
+			
+			padding: 20px;
+			font-family: Arial, sans-serif;
+			width: 50%;
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	</style>
+
+
 </head>
+
 <body>
 
-	<h1>teste</h1>
+
 
 
 	<script>
 
-const queryString = window.location.search; // Obtém a string de consulta da URL
-const urlParams = new URLSearchParams(queryString); // Cria um objeto URLSearchParams a partir da string de consulta
-const data = JSON.parse(decodeURIComponent(urlParams.get("dados"))); // Obtém os dados da string de consulta e decodifica o JSON
+		const queryString = window.location.search; // Obtém a string de consulta da URL
+		const urlParams = new URLSearchParams(queryString); // Cria um objeto URLSearchParams a partir da string de consulta
+		const data = JSON.parse(decodeURIComponent(urlParams.get("dados"))); // Obtém os dados da string de consulta e decodifica o JSON
 
-console.table(data)
-		
+		console.table(data)
+
+		const def = Object.values(data)[0];
+		console.log(def.id)
 
 
 	</script>
 
 
-	<div id="datasheet"></div>
+	<div class="container">
 
-	
+		<div class="header">
+
+			<h2 class="header-order">Ordem de Serviço</h2>
+			<h3 class="header-number"><span id="idSpan"></span></h3>
+			<div class="header-logo">
+
+				<img src="./images/logo.svg" alt="logotype" id="img-logo">
+
+			</div>
+
+		</div>
+
+		<div class="box">
+			<div class="box-open">
+
+				Solicitante: <h3 id="requesterSpan"></h3>
+				Abertura: <h3 id="dateSpan"></h3>
+				Tipo de atividade:<h3 id="activitySpan"></h3>
+
+			</div>
+			<div class="box-add">
+
+				Setor: <h3 id="sectorSpan"> </h3>
+				Equipamento: <h3 id="equipSpan"></h3>
+				Demanda: <h3 id="descriptionSpan"></h3>
+			</div>
+		</div>
+
+		<div class="fillField">
+
+			<div class="middlefield">
+				<p>Data de início: ______/______/________</p>
+				<p>Data de término: ______/______/________</p>
+				<p>Equipe:______________________________</p>
+			</div>
+
+			<div class="finallyField">
+
+				<p>Solicitante:__________________________</p>
+				<p>Responsável:________________________</p>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+	<script>
+
+		let idSpan = document.getElementById("idSpan")
+		let requesterSpan = document.getElementById("requesterSpan")
+		let dateSpan = document.getElementById("dateSpan")
+		let activitySpan = document.getElementById("activitySpan")
+		let sectorSpan = document.getElementById("sectorSpan")
+		let equipSpan = document.getElementById("equipSpan")
+		let descriptionSpan = document.getElementById("descriptionSpan")
+
+
+		idSpan.innerHTML = def.id;
+		requesterSpan.innerHTML = def.cliente;
+		dateSpan.innerHTML = def.dataAbertura;
+		activitySpan.innerHTML = def.atividade;
+		sectorSpan.innerHTML = def.setor;
+		
+		equipSpan.innerHTML = def.equipamento;
+		
+		descriptionSpan.innerHTML = def.descricao;
+
+		window.print();
+	</script>
+
+
 </body>
+
 </html>
