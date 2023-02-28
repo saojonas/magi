@@ -166,11 +166,13 @@ fieldset {
   cursor: pointer;
 }
 
-.actions-td{
+#confirm-box{
 
-gap: 15px;  
-
-
+  margin-top: -50px;
+  display: flex;
+  text-align: center;
+  text-transform: uppercase;
+  justify-content: center;
 
 }
 

@@ -1,128 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Ordem de Serviço</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<style>
-		/* Definições de estilo para o corpo do documento */
-body {
-	font-family: Arial, sans-serif;
-	font-size: 12pt;
-	margin: 0;
-	padding: 0;
-}
-
-/* Definições de estilo para o cabeçalho */
-header {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	margin: 20px 0;
-}
-
-header img {
-	max-width: 200px;
-}
-
-header h1 {
-	text-align: center;
-	margin: 10px 0;
-}
-
-/* Definições de estilo para a seção principal */
-section {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-	justify-content: flex-start;
-	margin: 20px 0;
-}
-
-/* Definições de estilo para cada item da ordem de serviço */
-.item {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: flex-start;
-	margin-bottom: 20px;
-}
-
-.item h2 {
-	font-size: 14pt;
-	font-weight: bold;
-	margin-bottom: 5px;
-}
-
-.item p {
-	font-size: 12pt;
-	margin: 0;
-	padding: 0;
-}
-
-/* Definições de estilo para o rodapé */
-footer {
-	margin-top: 50px;
-	text-align: center;
-}
-
-footer p {
-	margin: 0;
-	padding: 0;
-}
-
-
-
-
-
-	</style>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NervNode</title>
 </head>
 <body>
-	<header>
-		<img src="logo.png" alt="Logo da Empresa">
-		<h1>Ordem de Serviço</h1>
-	</header>
 
-	<section>
-		<div class="item">
-			<h2>Solicitante:</h2>
-			<p>Nome do solicitante</p>
-		</div>
+	<h1>teste</h1>
 
-		<div class="item">
-			<h2>Setor:</h2>
-			<p>Nome do setor</p>
-		</div>
 
-		<div class="item">
-			<h2>Equipamento:</h2>
-			<p>Nome do equipamento</p>
-		</div>
+	<script>
 
-		<div class="item">
-			<h2>Atividade:</h2>
-			<p>Nome da atividade</p>
-		</div>
+const queryString = window.location.search; // Obtém a string de consulta da URL
+const urlParams = new URLSearchParams(queryString); // Cria um objeto URLSearchParams a partir da string de consulta
+const data = JSON.parse(decodeURIComponent(urlParams.get("dados"))); // Obtém os dados da string de consulta e decodifica o JSON
 
-		<div class="item">
-			<h2>Descrição:</h2>
-			<p>Descrição da atividade a ser realizada</p>
-		</div>
+console.table(data)
+		
 
-		<div class="item">
-			<h2>Data e hora de início:</h2>
-			<p>Data e hora de início da execução</p>
-		</div>
 
-		<div class="item">
-			<h2>Data e hora de fim:</h2>
-			<p>Data e hora de fim da execução</p>
-		</div>
-	</section>
+	</script>
 
-	<footer>
-		<p>Assinatura do solicitante: ___________________________</p>
-	</footer>
+
+	<div id="datasheet"></div>
+
+	
 </body>
 </html>

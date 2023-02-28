@@ -3,9 +3,7 @@ function popularTabela() {
   const tbody = document.querySelector(".content table tbody");
   tbody.innerHTML = "";
 
-  for (let i = 0; i < ordemServicoSalva.length; i++) {
-    const ordemServico = ordemServicoSalva[i];
-
+  ordemServicoSalva.forEach((ordemServico) => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td class="idOS">${ordemServico.id}</td>
@@ -16,66 +14,51 @@ function popularTabela() {
       <td class="active">${ordemServico.atividade}</td>
       <td class="description">${ordemServico.descricao}</td>
       <td class="actions-td">
-        <button class="btn-transform btn-edit" data-index="${i}"><span class="material-symbols-outlined">edit_note</span></button>
-        <button class="btn-transform btn-delete" data-index="${i}"><span class="material-symbols-outlined">inventory_2</span></button>
-        <button class="btn-transform btn-print" data-index="${i}"><span class="material-symbols-outlined">print</span></button>
+        <button class="btn-transform btn-edit" data-index="${ordemServico.id}"><span class="material-symbols-outlined">edit_note</span></button>
+        <button class="btn-transform btn-delete" data-index="${ordemServico.id}"><span class="material-symbols-outlined">inventory_2</span></button>
+        <button class="btn-transform" id="btn-print" data-index="${ordemServico.id}"><span class="material-symbols-outlined">print</span></button>
       </td>
     `;
 
     tbody.appendChild(row);
-  }
+  });
 
   // adiciona o tratamento de eventos aos botões
-  const btnsEdit = document.querySelectorAll(".btn-edit");
-  btnsEdit.forEach((btnEdit) => {
-    btnEdit.addEventListener("click", (event) => {
-      const index = event.currentTarget.getAttribute("data-index");
-      const ordemServico = ordemServicoSalva[index];
+  tbody.addEventListener("click", (event) => {
+    const btnEdit = event.target.closest(".btn-edit");
+    if (btnEdit) {
+      const index = btnEdit.getAttribute("data-index");
+      const ordemServico = ordemServicoSalva.find((ordem) => ordem.id === index);
+      console.log("edita?", ordemServico);
+    }
 
-      console.log("edita?")
-    });
-  });
+    const btnDelete = event.target.closest(".btn-delete");
+if (btnDelete) {
+  const index = btnDelete.getAttribute("data-index");
+  const ordemServico = ordemServicoSalva.find((ordem) => ordem.id === index);
+  const confirmDelete = confirm(`Deseja realmente excluir a ordem de serviço ${ordemServico.id}?`);
+  
+  if (confirmDelete) {
+    const newOrdemServicoSalva = ordemServicoSalva.filter((ordem) => ordem.id !== index);
+    localStorage.setItem("ordemServico", JSON.stringify(newOrdemServicoSalva));
+    popularTabela();
+  }
+}
 
-  const btnsRemove = document.querySelectorAll(".btn-delete");
-  btnsRemove.forEach((btnRemove) => {
-    btnRemove.addEventListener("click", (event) => {
-      const index = event.target.getAttribute("data-index");
-      ordemServicoSalva.splice(index, 1);
-      localStorage.setItem("ordemServico", JSON.stringify(ordemServicoSalva));
-      console.log("deleta?")
-      popularTabela();
-    });
-  });
-
-  const btnsPrint = document.querySelectorAll(".btn-print");
-  btnsPrint.forEach((btnPrint) => {
-    btnPrint.addEventListener("click", (event) => {
-      const index = event.target.getAttribute("data-index");
-      const ordemServico = ordemServicoSalva[index];
-
-      const newDoc = document.implementation.createHTMLDocument();
-      const section = newDoc.createElement('section');
-      section.innerHTML = `
-  <h1>Ordem de Serviço #${ordemServico.id}</h1>
-  <p><strong>Data de Abertura:</strong> ${ordemServico.dataAbertura}</p>
-  <p><strong>Solicitante:</strong> ${ordemServico.cliente}</p>
-  <p><strong>Setor:</strong> ${ordemServico.setor}</p>
-  <p><strong>Equipamento:</strong> ${ordemServico.equipamento}</p>
-  <p><strong>Atividade:</strong> ${ordemServico.atividade}</p>
-  <p><strong>Descrição:</strong> ${ordemServico.descricao}</p>
-`;
-      newDoc.body.appendChild(section);
-
-      console.log('imprime')
-      window.print();
-
-    });
+    const btnPrint = event.target.closest("#btn-print");
+    if (btnPrint) {
+      const index = btnPrint.getAttribute("data-index");
+      const ordemServico = ordemServicoSalva.find((ordem) => ordem.id === index);
+      const data = [ordemServico];
+      const url = `nervnode.html?dados=${encodeURIComponent(JSON.stringify(data))}`;
+      window.open(url, "_blank");
+    }
   });
 }
 
 popularTabela();
 
-// atualiza a tabela a cada 5 segundos
+// atualiza a tabela a cada 30 segundos
 setInterval(() => {
   popularTabela();
-}, 5000);
+}, 30000);

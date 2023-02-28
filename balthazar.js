@@ -11,7 +11,7 @@ form.addEventListener("submit", (event) => {
   const inputDescricao = document.getElementById("inputDescricao");
 
   const ordemServico = {
-    id: ordemServicoList.length + 1,
+    id: generateCode(),
     dataAbertura: new Date().toLocaleString("pt-BR", { hour12: false }),
     cliente: inputNome.value,
     setor: inputSetor.value,
@@ -23,7 +23,20 @@ form.addEventListener("submit", (event) => {
   ordemServicoList.push(ordemServico);
   localStorage.setItem("ordemServico", JSON.stringify(ordemServicoList));
   form.reset();
+
+  const textConfirm = document.getElementById("confirm-text")
+
+  textConfirm.innerHTML = `Ordem de Serviço [${ordemServico.id}] Cadastrada!`
+
+
+  function generateCode() {
+    const codigo = Math.floor(Math.random() * 10000);
+    const codigoComPrefixo = `OS${codigo.toString().padStart(4, '0')}`; // adiciona 'OS' no início do código
+    return codigoComPrefixo;
+  }
+
+
 });
 
-console.table(ordemServicoList);
+//console.table(ordemServicoList);
 
